@@ -18,6 +18,11 @@ def main():
     #add actions
     a = "Action"
     lib.add(a, "shoot")
+    lib.add(a,"sort")
+    lib.add(a,"avoid")
+    lib.add(a,"buy")
+    lib.add(a,"sell")
+    
     
     #add Objects
     o = "Objects"
@@ -25,11 +30,15 @@ def main():
     lib.add(o, "Bottles")
     lib.add(o, "Holes")
     lib.add(o, "Walls")
+    lib.add(o, "Drugs")
+    lib.add(o, "the Cops")
+    lib.add(o, "angry Wikings")
 
     # add patterns
     gen.add("A #Genre game where you #Action #Objects")
     gen.add("A #Genre Game about #Objects . But be careful of #Objects !")
     gen.add("A #Genre #Genre Mix with #Objects")
+
 
 
     result = gen.generate(lib)
