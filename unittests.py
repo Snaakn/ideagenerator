@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from dictionary import Library
+from dictionary import Library, Generator
 import unittest
 
 class ideaGeneratorTest(unittest.TestCase):
@@ -44,7 +44,13 @@ class ideaGeneratorTest(unittest.TestCase):
         result = lib.getElemByName("Genre").generate()
         self.assertEqual(testGenre, result)
 
-
+    def tes_generate_simple_phrase(self):
+        lib = Library()
+        lib.add("Genre", "Shooter")
+        gen = Generator()
+        gen.add("A #Genre Game") 
+        result = gen.generate(lib)
+        self.assertEquals("A Shooter Game ", result)
 
 if __name__ == '__main__':
     unittest.main()

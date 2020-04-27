@@ -2,6 +2,7 @@ from dictionary import Element
 
 
 class Library:
+    libCount = 0
     def __init__(self):
         self.elemList = []
         print("Library created")
