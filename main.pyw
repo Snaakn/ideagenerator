@@ -94,9 +94,8 @@ def main():
     gen.add("A Game about #Objects and #Enemies with ' #Mechanics ' Mechanics.")
 
     root = tk.Tk()
-    #canvas = tk.Canvas(root, height=200, width=400, bg="#FFFFFF")
-    #canvas.pack()
     root.geometry("600x50")
+    root.title("Game Idea Generator")
     idea_text_var = tk.StringVar(root)
     idea_text = tk.Label(root, textvariable=idea_text_var)
     idea_text.pack()
@@ -105,8 +104,8 @@ def main():
     button = tk.Button(root, text="Generate Idea", command= lambda: idea_text_var.set(generate_text(lib, gen)))
     button.pack()
 
-
     root.mainloop()
+
 
 if __name__ == "__main__":
     main()
