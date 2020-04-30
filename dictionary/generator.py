@@ -12,13 +12,13 @@ class Generator:
     def generate(self, lib):
         rn = Random()
         rn.seed(a=None, version=2)
-        return self.parsePattern(rn.choice(self.patterns), lib)
+        return self.parse_pattern(rn.choice(self.patterns), lib)
 
-    def parsePattern(self , pattern, lib):
+    def parse_pattern(self, pattern, lib):
         words = pattern.split()
         result = ""
         for word in words:
             if word[0] == '#':
-                word = lib.getElemByName(word.replace('#', '')).generate()
+                word = lib.get_element_by_name(word.replace('#', '')).generate()
             result += word + " "
         return result

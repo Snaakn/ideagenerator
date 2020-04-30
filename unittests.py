@@ -3,46 +3,47 @@
 from dictionary import Library, Generator
 import unittest
 
+
 class ideaGeneratorTest(unittest.TestCase):
     def test_add_new_library_element(self):
         lib = Library()
-        oldCount = lib.elemCount()
-        lib.addElem("testElement")
-        self.assertNotEqual(oldCount, lib.elemCount())
+        old_count = lib.elem_count()
+        lib.add_element("testElement")
+        self.assertNotEqual(old_count, lib.elem_count())
     
     def test_get_library_element_by_name(self):
         lib = Library()
-        testElemName = "test"
-        lib.addElem(testElemName)
-        self.assertEqual(testElemName, lib.getElemByName(testElemName).getName())
+        test_elem_name = "test"
+        lib.add_element(test_elem_name)
+        self.assertEqual(test_elem_name, lib.get_element_by_name(test_elem_name).get_name())
 
-    #add an entry to a library element
+    # add an entry to a library element
     def test_add_new_library_element_entry(self):
         lib = Library()
-        testName = "test"
-        lib.addElem(testName)
-        beforeCount = lib.getElemByName(testName).entryCount()
-        lib.getElemByName(testName).addEntry("Testentry")
-        self.assertNotEqual( beforeCount,lib.getElemByName(testName).entryCount)
+        test_name = "test"
+        lib.add_element(test_name)
+        before_count = lib.get_element_by_name(test_name).entry_count()
+        lib.get_element_by_name(test_name).add_entry("Testentry")
+        self.assertNotEqual(before_count, lib.get_element_by_name(test_name).entry_count)
     
     # new add function adds elements and entries if an element already exists it only adds the entry to it
     def test_add_element_with_entry(self):
         lib = Library()
-        testName = "Genre"
-        testGenre = "Shooter"
+        test_name = "Genre"
+        test_genre = "Shooter"
         
-        lib.addElem(testName)
-        beforeCount = lib.elemCount()
+        lib.add_element(test_name)
+        before_count = lib.elem_count()
         # function to test
-        lib.add(testName, testGenre)
-        self.assertEqual(beforeCount, lib.elemCount())
+        lib.add(test_name, test_genre)
+        self.assertEqual(before_count, lib.elem_count())
     
     def test_generate_text(self):
         lib = Library()
-        testGenre = "Shooter"
-        lib.add("Genre", testGenre)
-        result = lib.getElemByName("Genre").generate()
-        self.assertEqual(testGenre, result)
+        test_genre = "Shooter"
+        lib.add("Genre", test_genre)
+        result = lib.get_element_by_name("Genre").generate()
+        self.assertEqual(test_genre, result)
 
     def tes_generate_simple_phrase(self):
         lib = Library()
@@ -51,6 +52,7 @@ class ideaGeneratorTest(unittest.TestCase):
         gen.add("A #Genre Game") 
         result = gen.generate(lib)
         self.assertEquals("A Shooter Game ", result)
+
 
 if __name__ == '__main__':
     unittest.main()

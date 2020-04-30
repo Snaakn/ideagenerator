@@ -2,35 +2,36 @@ from dictionary import Element
 
 
 class Library:
-    libCount = 0
+    lib_count = 0
     def __init__(self):
-        self.elemList = []
-        print("Library created")
+        self.lib_count += 1
+        self.elements = []
+        # print("Library created")
 
     def __del__(self):
-        self.elemList.clear()
+        self.lib_count -= 1
+        self.elements.clear()
 
     def add(self, name, entry):
         # if element is already existent add entry to it and return
-        for elem in self.elemList:
+        for elem in self.elements:
             if name == elem.name:
-                elem.addEntry(entry)
+                elem.add_entry(entry)
                 return
         # if not existent create new element and add entry to it
-        self.addElem(name)
-        self.getElemByName(name).addEntry(entry)
+        self.add_element(name)
+        self.get_element_by_name(name).add_entry(entry)
 
-
-    def addElem(self, name):
-        self.elemList.append(Element(name))
+    def add_element(self, name):
+        self.elements.append(Element(name))
         
-    def elemCount(self):
-        return len(self.elemList)
+    def elem_count(self):
+        return len(self.elements)
         
-    def getElemByName(self, elemName):
-        for elem in self.elemList:
-            if elem.getName() == elemName:
+    def get_element_by_name(self, elemName):
+        for elem in self.elements:
+            if elem.get_name() == elemName:
                 return elem
         print("Element not found")
         return Element("")
-    
+

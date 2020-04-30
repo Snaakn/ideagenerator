@@ -8,18 +8,17 @@ class Element:
     def __del__(self):
         self.entries.clear()
     
-    def addEntry(self, entry):
+    def add_entry(self, entry):
         self.entries.append(entry)
-        print("Added " + entry + " to " + self.name)
+        # print("Added " + entry + " to " + self.name)
 
-    def getName(self):
+    def get_name(self):
         return self.name
 
-    def entryCount(self):
+    def entry_count(self):
         return len(self.entries)
     
     def generate(self):
         rn = Random()
         rn.seed(a=None, version=2)
-        text = rn.choice(self.entries)
-        return text
+        return rn.choice(self.entries)
